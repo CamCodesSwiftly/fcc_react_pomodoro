@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;400;700&display=swap");
+body {
+	margin: 0;
+	font-family: "Roboto Mono", monospace;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	color: white;
+	background-color: #276d49;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+		monospace;
+}
+
+i {
+	cursor: pointer;
+}
+
+.colored {
+	color: rgb(255, 166, 0);
+}
+
+.colored-blue {
+	color: darkblue;
+}
+
+.disable {
+	pointer-events: none;
+}
+
+.fa-rotate-right:active,
+.fa-minus:active,
+.fa-plus:active {
+	color: rgb(255, 166, 0);
+}
+
+#wristband-upper {
+	background-color: white;
+	border: 15px solid rgb(35, 35, 35);
+	height: 118px;
+	width: 155px;
+	position: absolute;
+	top: 0px;
+	left: 50%;
+	transform: translate(-50%);
+}
+
+#clock {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 350px;
+	height: 400px;
+	border: 30px solid rgb(35, 35, 35);
+	border-radius: 106px;
+	background-color: #757575;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	flex-direction: column;
+}
+#clock h1 {
+	text-align: center;
+	margin: 0;
+	font-size: 30px;
+}
+#clock #breaksession-container {
+	display: flex;
+	justify-content: space-evenly;
+	width: 100%;
+}
+#clock #breaksession-container #break-label,
+#clock #breaksession-container #session-label {
+	font-weight: 600;
+}
+#clock #breaksession-container #break-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#clock #breaksession-container #break-container #break-length {
+	margin: 0 10px;
+	font-weight: 600;
+}
+#clock #breaksession-container #session-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#clock #breaksession-container #session-container #session-length {
+	margin: 0 10px;
+	font-weight: 600;
+}
+#clock #timer {
+	font-size: 25px;
+	text-align: center;
+}
+#clock #timer #timer-label {
+	font-weight: 600;
+}
+#clock #timer #timer-container {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+#clock #timer #timer-container #time-left {
+	margin: 0 10px;
+	font-weight: 600;
+}
+#clock #credits-container {
+	margin-bottom: -40px;
+}
+#clock #credits-container .credits {
+	font-size: 13px;
+	text-align: center;
+	font-weight: 100;
+}
+
+#wristband-lower {
+	background-color: white;
+	border: 15px solid rgb(35, 35, 35);
+	height: 117px;
+	width: 155px;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translate(-50%);
+}
