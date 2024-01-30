@@ -84,8 +84,11 @@ class Clock extends React.Component {
 		super(props);
 		this.state = {
 			timeLeft: 1500,
+      // timeLeft: 5,
 			sessionLength: 1500,
+      // sessionLength: 6,
 			breakLength: 300,
+      // breakLength: 6,
 			sessionRunning: false,
 			breakRunning: false,
 			timeRunning: false,
@@ -301,6 +304,12 @@ function formatTime(timeLeft, onlyMinutes) {
 }
 
 // * STYLING SECTION----------------------------------------------------------------
+// ! Coloring does not work and crashes for some reason
+// ! when the code was transferred from Codepen.io to
+// ! local and github. Local is a create-react-app
+// ! I suspect the fontawesome icons to be the culprit
+// ! I guess that the icons have to be properly imported
+// ! in an react app, and not via cdn and usage of <i>
 function colorLabels(elementString) {
 	let element = document.getElementById(elementString);
 	element.classList.add("colored");
@@ -313,22 +322,22 @@ function colorLabels(elementString) {
 const timerLabelElement = document.getElementById("timer-label");
 const timeLeftElement = document.getElementById("time-left");
 function colorTimerLabels(session) {
-	const classToRemove = session ? "colored-blue" : "colored";
-	const classToAdd = session ? "colored" : "colored-blue";
+	// const classToRemove = session ? "colored-blue" : "colored";
+	// const classToAdd = session ? "colored" : "colored-blue";
 
-	timerLabelElement.classList.remove(classToRemove);
-	timeLeftElement.classList.remove(classToRemove);
-	setTimeout(() => {
-		timerLabelElement.classList.add(classToAdd);
-		timeLeftElement.classList.add(classToAdd);
-	}, 200);
+	// timerLabelElement.classList.remove(classToRemove);
+	// timeLeftElement.classList.remove(classToRemove);
+	// setTimeout(() => {
+	// 	timerLabelElement.classList.add(classToAdd);
+	// 	timeLeftElement.classList.add(classToAdd);
+	// }, 200);
 }
 
 function removeStyles(session) {
-	timerLabelElement.classList.remove("colored-blue");
-	timerLabelElement.classList.remove("colored");
-	timeLeftElement.classList.remove("colored-blue");
-	timeLeftElement.classList.remove("colored");
+	// timerLabelElement.classList.remove("colored-blue");
+	// timerLabelElement.classList.remove("colored");
+	// timeLeftElement.classList.remove("colored-blue");
+	// timeLeftElement.classList.remove("colored");
 	return;
 }
 
@@ -339,22 +348,30 @@ function animatePlayButton(e, running) {
 	e.target.classList.remove(classToRemove);
 	e.target.classList.add(classToAdd);
 	e.target.classList.add("colored");
-	setTimeout(() => {
+	// setTimeout(() => {
 		e.target.classList.remove("colored");
-	}, 100);
+	// }, 100);
 
-	running && timerLabelElement.classList.remove("colored");
-	running && timeLeftElement.classList.remove("colored");
+	// running && timerLabelElement.classList.remove("colored");
+	// running && timeLeftElement.classList.remove("colored");
 
-	timerLabelElement.classList.add("colored");
-	timeLeftElement.classList.add("colored");
+	// timerLabelElement.classList.add("colored");
+	// timeLeftElement.classList.add("colored");
 	return;
 }
 // * AUDIO SECTION------------------------------------------------------------------
 function playAudio() {
 	let audio = document.getElementById("beep");
 	audio.currentTime = 0;
-	audio.play();
+  let playPromise = audio.play();
+	// audio.play();
+  if(playPromise !== undefined) {
+    playPromise.then(_ => {
+      return;
+    }).catch(error => {
+      "There's still an issue with audio.play()"
+    })
+  }
 	return;
 }
 function stopAudio() {
